@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta id="viewport" name="viewport" content="width=240,user-scalable=no">
+	<title>打地鼠</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<img src="img/bj.png" alt="">
+	<img src="img/logo.png" alt="">
+	<img src="img/dishu.png" alt="">
+	<img src="img/dishu_2.png" alt="">
+	<img src="img/tuzi.png" alt="">
+	<img src="img/chuizi(1).png" alt="">
+	<img src="img/num_1.png" alt="">
+	<img src="img/num_2.png" alt="">
+	<img src="img/ui.png" alt="">
+	<img src="img/life.png" alt="">
+	<img src="img/life1.png" alt="">
+	<img src="img/ready.png" alt="">
+	<img src="img/cw.png" alt="">
+	<audio src="sound/bgsound.ogg" autoplay></audio>
+	<canvas width="240" height="320"></canvas>
+	<script type="text/javascript" src="js/Game.js"></script>
+	<script type="text/javascript" src="js/dishu.js"></script>
+	<script type="text/javascript">
+		window.onload = function(){
+			// 获取元素
+			var imgs = document.querySelectorAll("img");
+			var bg = imgs[0];
+			var logo = imgs[1];
+			var ui = imgs[8];
+			var dishu1 = imgs[2];
+			var dishu2 = imgs[3];
+			var tuzi = imgs[4];
+			var chuizi = imgs[5];
+			var life = imgs[9];
+			var life1 = imgs[10];
+			var num_1 = imgs[6];
+			var num_2 = imgs[7];
+			var gameover = imgs[12];
+			var audio = document.querySelector("audio");
+
+			var imgArr = [dishu1,dishu2,tuzi];
+			// console.log(imgArr)
+			// 获取canvas与刷子
+			var canvas = document.querySelector("canvas");
+			// 创建一个地鼠的实例
+			var dishu = new Dishu(imgArr);
+			var ctx = canvas.getContext("2d");
+			// 创建一个Game的实例
+			var game = new Game(ctx,bg,logo,ui,dishu,chuizi,life,life1,num_1,num_2,gameover,audio);
+		}
+	</script>
+</body>
+</html>
